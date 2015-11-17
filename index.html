@@ -61,7 +61,7 @@
   
   <div class="tabs-animated-wrap">
     <div class="tabs">
-      <div id="tab1" class="page-content tab active">
+      <div id="tab1" class="page-content tab active" onclick="stwaaer()">
       
       </div>
       <div id="tab2" class="page-content tab">
@@ -96,9 +96,13 @@
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="js/framework7.min.js"></script>
     <script type="text/javascript" src="js/kitchen-sink.js"></script>
+    <script src="js/Wallpaper.js"></script>
     <!-- Path to your app js-->
     
     <script src="js/trianglify.min.js"></script>
+    <script src="js/jquery-2.1.4.js"></script>
+
+
   <script>
   var changeimage = function ()
   {
@@ -125,6 +129,21 @@
    list.removeChild(list.getElementsByTagName('img')[0]);
   }
   changeimage();
+
+  var stwaaer = function()
+  {
+    //var imagePath = $("#tab1 img").attr('src',URL.createObjectURL(e.target.files[0]));
+      // prep some variables
+  var imagePath = $("#tab1 img").attr('src',URL.createObjectURL(e.target.files[0]));             // Mention the complete path to your image. If it contains under multiple folder then mention the path from level "www" to the level your image contains with its name including its extension.
+  var imageTitle = "christmas";                     // Set title of your choice.
+  var folderName = "PluginImages";                  // Set folder Name of your choice. 
+  var success = function() { alert("Success"); };           // Do something on success return.
+  var error = function(message) { alert("Oopsie! " + message); };   // Do something on error return.
+
+  // For setting wallpaper & saving image
+  wallpaper.setImage(imagePath, imageTitle, folderName, success, error);
+
+  }
   </script>
   </body>
 </html>
